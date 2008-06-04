@@ -70,9 +70,11 @@
  * Version 0.4: 2008-03-15 Changed the noDrag/noDrop attributes to nodrag/nodrop classes
  *                         Added onAllowDrop to control dropping
  *                         Fixed a bug which meant that you couldn't set the scroll amount in both directions
- *                         Added serialise method
+ *                         Added serialize method
  * Version 0.5: 2008-05-16 Changed so that if you specify a dragHandle class it doesn't make the whole row
  *                         draggable
+ *                         Improved the serialize method to use a default (and settable) regular expression.
+ *                         Added tableDnDupate() and tableDnDSerialize() to be called when you are outside the table
  */
 jQuery.tableDnD = {
     /** Keep hold of the current table being dragged */
@@ -350,6 +352,11 @@ jQuery.tableDnD = {
         var rows = table.rows;
         for (var i=0; i<rows.length; i++) {
             if (result.length > 0) result += "&";
+            var rowId = rows[i].id;
+            if (rowId && rowId && table.tableDnDConfig && table.tableDnDConfig.serializeRegexp) {
+                rowId = rowId.match(table.tableDnDConfig.serializeRegexp)[0];
+            }
+
             result += tableId + '[]=' + rows[i].id;
         }
         return result;
