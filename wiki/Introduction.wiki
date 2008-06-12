@@ -1,4 +1,5 @@
 #summary jQuery Table Drag and Drop plugin
+#labels Featured
 
 = Introduction =
 
