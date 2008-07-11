@@ -1,14 +1,14 @@
 /**
  * TableDnD plug-in for JQuery, allows you to drag and drop table rows
  * You can set up various options to control how the system will work
- * Copyright © Denis Howlett <denish@isocra.com>
+ * Copyright (c) Denis Howlett <denish@isocra.com>
  * Licensed like jQuery, see http://docs.jquery.com/License.
  *
  * Configuration options:
  * 
  * onDragStyle
  *     This is the style that is assigned to the row during drag. There are limitations to the styles that can be
- *     associated with a row (such as you can't assign a borderâ€”well you can, but it won't be
+ *     associated with a row (such as you can't assign a border--well you can, but it won't be
  *     displayed). (So instead consider using onDragClass.) The CSS style to apply is specified as
  *     a map (as used in the jQuery css(...) function).
  * onDropStyle
