@@ -92,7 +92,7 @@ jQuery.tableDnD = {
 
         this.each(function() {
             // This is bound to each matching table, set up the defaults and override with user options
-            this.tableDnDConfig = $.extend({
+            this.tableDnDConfig = jQuery.extend({
                 onDragStyle: null,
                 onDropStyle: null,
 				// Add in the default class for whileDragging
@@ -123,7 +123,7 @@ jQuery.tableDnD = {
         var config = table.tableDnDConfig;
 		if (table.tableDnDConfig.dragHandle) {
 			// We only need to add the event to the specified cells
-			var cells = $("td."+table.tableDnDConfig.dragHandle, table);
+			var cells = jQuery("td."+table.tableDnDConfig.dragHandle, table);
 			cells.each(function() {
 				// The cell is bound to "this"
                 jQuery(this).mousedown(function(ev) {
@@ -142,7 +142,7 @@ jQuery.tableDnD = {
 	        var rows = jQuery("tr", table); // get all the rows as a wrapped set
 	        rows.each(function() {
 				// Iterate through each row, the row is bound to "this"
-				var row = $(this);
+				var row = jQuery(this);
 				if (! row.hasClass("nodrag")) {
 	                row.mousedown(function(ev) {
 	                    if (ev.target.tagName == "TD") {
@@ -305,7 +305,7 @@ jQuery.tableDnD = {
                     }
                 } else {
 					// If a row has nodrop class, then don't allow dropping (inspired by John Tarr and Famic)
-                    var nodrop = $(row).hasClass("nodrop");
+                    var nodrop = jQuery(row).hasClass("nodrop");
                     if (! nodrop) {
                         return row;
                     } else {
@@ -357,7 +357,7 @@ jQuery.tableDnD = {
                 rowId = rowId.match(table.tableDnDConfig.serializeRegexp)[0];
             }
 
-            result += tableId + '[]=' + rows[i].id;
+            result += tableId + '[]=' + rowId;
         }
         return result;
 	},
